@@ -1,0 +1,2336 @@
+<html>
+<head>
+<script>
+var currentScreen = 0;
+
+var selectedItems = 0;
+var choice = new Array();
+var tim;
+var corr = 0;
+var err = 0;
+
+
+function results() {
+	var finalScore = corr - (.25 * err);
+	document.write("Please don't close this tab. <br>Your score is: "+finalScore);
+		clearInterval(tim);
+
+}
+
+
+function proceed() {
+
+
+console.log("click "+currentScreen);
+	if (currentScreen == 0) {
+		console.log("choice 3" + choice[2]);
+		if ((choice[0] == "down" && choice[1] == "left" && choice[2] == "none") || (choice[0] == "left" && choice[1] == "down" && choice[2] == "none")) {
+		currentScreen++;
+		reset();
+		}
+		else {
+		document.getElementById("inst").style = "color:red; font-weight: bold;"
+		reset();
+		}
+	}
+	else if (currentScreen == 1) {
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;				
+			}
+		}
+		if (found == 3) {
+		currentScreen++;
+		reset();
+		}
+		else {
+		document.getElementById("inst2").style = "color:red; font-weight: bold;"
+		reset();
+		}
+	}
+
+	else if (currentScreen == 2) {
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+
+		if (found == 3) {
+		currentScreen++;
+		reset();
+		}
+		else {
+		document.getElementById("inst3").style = "color:red; font-weight: bold;"
+		reset();
+		}
+	}
+	else if (currentScreen == 3) {
+	var timer = document.getElementById("logout-timer");
+timer.innerHTML = "";
+
+var now = new Date().getTime() / 1000;
+var deadline = now + 601;
+
+   tim = setInterval(function(){
+	var diff = Math.floor(deadline - (new Date().getTime() / 1000));
+	if (diff <= 0) {
+	results();
+	}
+   timer.innerHTML = "Time left (seconds):"+diff;	
+  }, 1000);
+
+	currentScreen++;
+	reset();
+	}
+	
+else if (currentScreen == 4) { //8
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+	
+else if (currentScreen == 5) { //9
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+
+else if (currentScreen == 6) { //10
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+
+else if (currentScreen == 7) { //11
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+
+else if (currentScreen == 8) { //12
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 9) { //13
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 10) { //14
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 11) { //15
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+	
+else if (currentScreen == 12) { //16
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 13) { //17
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 14) { //18
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 15) { //19
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 16) { //20
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 17) { //21
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 18) { //22
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 19) { //23
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 20) { //24
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 21) { //25
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 22) { //26
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 23) { //27
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 24) { //28
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 25) { //29
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 26) { //30
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 27) { //31
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 28) { //32
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 29) { //33
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 30) { //34
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 31) { //35
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 32) { //36
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 33) { //37
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 34) { //38
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 35) { //39
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 36) { //40
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 37) { //41
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 38) { //42
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 39) { //43
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 40) { //44
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 41) { //45
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 42) { //46
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 43) { //47
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 44) { //48
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 45) { //49
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+
+else if (currentScreen == 46) { //50
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 47) { //51
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 48) { //52
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 49) { //53
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+	
+else if (currentScreen == 50) { //54
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+	
+else if (currentScreen == 51) { //55
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+
+
+else if (currentScreen == 52) { //56
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+	
+else if (currentScreen == 53) { //57
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+	
+
+else if (currentScreen == 54) { //58
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 55) { //59
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+	
+else if (currentScreen == 56) { //60
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}	
+
+
+
+else if (currentScreen == 57) { //61
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 58) { //62
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 59) { //63
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "down") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "left") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+
+else if (currentScreen == 60) { //64
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found+=2;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+			}
+		}
+		
+		if (found == 4) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+	
+	
+else if (currentScreen == 61) { //65
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 62) { //66
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotleft") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "none") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+
+else if (currentScreen == 63) { //67
+
+		var found = 0;
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "up") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "right") {
+				found++;
+				break;
+			}
+		}
+		for (var i = 0; i < choice.length; i++) {
+			if (choice[i] == "rotright") {
+				found++;
+				break;
+			}
+		}
+		
+		if (found == 3) {
+		corr++;
+		console.log("correct");
+		}
+		else {
+		err++;
+		console.log("error");
+		}
+
+		currentScreen++;
+		reset();
+}
+	
+	
+	
+	
+	
+	
+}
+
+function next(imageSRC) {
+if (selectedItems < 3) {
+choice[selectedItems] = imageSRC.id;
+selectedItems++;
+document.getElementById("select"+selectedItems).src = imageSRC.id+".png";
+document.getElementById(imageSRC.id).style.visibility = "hidden";
+
+}
+}
+
+function reset() {
+if (currentScreen != 3) {
+document.getElementById("rotleft").style.visibility = "visible";
+document.getElementById("rotright").style.visibility = "visible";
+document.getElementById("left").style.visibility = "visible";
+document.getElementById("right").style.visibility = "visible";
+document.getElementById("down").style.visibility = "visible";
+document.getElementById("up").style.visibility = "visible";
+}
+
+if (currentScreen == 0) {
+document.getElementById("topPic").src = "1a.png";
+document.getElementById("bottomPic").src = "1b.png";
+document.getElementById("practice2").style = "display:none;";
+document.getElementById("practice3").style = "display:none;";
+document.getElementById("begin").style = "display:none;";
+}
+else if (currentScreen == 1) {
+document.getElementById("topPic").src = "2a.png";
+document.getElementById("bottomPic").src = "2b.png";
+document.getElementById("practice1").style = "display:none;";
+document.getElementById("practice3").style = "display:none;";
+document.getElementById("practice2").style = "display:block;";
+document.getElementById("begin").style = "display:none;";
+}
+else if (currentScreen == 2) {
+document.getElementById("topPic").src = "3a.png";
+document.getElementById("bottomPic").src = "3b.png";
+document.getElementById("practice1").style = "display:none;";
+document.getElementById("practice2").style = "display:none;";
+document.getElementById("practice3").style = "display:block;";
+document.getElementById("begin").style = "display:none;";
+}
+else if (currentScreen == 3) {
+document.getElementById("main").style.visibility = "hidden";
+document.getElementById("begin").style = "display:block;";
+
+document.getElementById("rotleft").style.visibility = "hidden";
+document.getElementById("rotright").style.visibility = "hidden";
+document.getElementById("left").style.visibility = "hidden";
+document.getElementById("right").style.visibility = "hidden";
+document.getElementById("down").style.visibility = "hidden";
+document.getElementById("up").style.visibility = "hidden";
+}
+// Start experiment
+
+else if (currentScreen >= 4 && currentScreen < 64) {
+document.getElementById("main").style.visibility = "visible";
+document.getElementById("practice1").style = "display:none;";
+document.getElementById("practice2").style = "display:none;";
+document.getElementById("practice3").style = "display:none;";
+document.getElementById("begin").style = "display:none;";
+picNum = currentScreen+4;
+document.getElementById("topPic").src = picNum+"a.png";
+document.getElementById("bottomPic").src = picNum+"b.png";
+}
+
+else if (currentScreen >= 64) {
+
+results();
+}
+
+
+
+
+
+
+
+selectedItems = 0;
+for (var i = 0; i < 3; i++) {
+choice[i] = "none";
+}
+
+if (currentScreen != 3) {
+document.getElementById("select1").src = "none.png";
+document.getElementById("select2").src = "none.png";
+document.getElementById("select3").src = "none.png";
+}
+}
+
+
+</script>
+
+
+</head>
+<body onload = "reset()">
+
+
+<h1 id = "logout-timer")></h1>
+
+<div id = "begin">
+<p>You are now ready to start the experiment. </br>There are 59 questions. Try not to guess the answers. </br>You have 10 minutes.</p>
+</br><input type = 'button' onclick = 'proceed()' value = 'begin'/>
+</div>
+
+<div id = "main" style = "width: 800px; text-align: center; margin: 0 auto;">
+
+<div id = "practice1">
+<h2>Practice</h2>
+<p>Each trial starts with two pictures seen below. The top picture is the starting position of the boat, while the bottom picture is the current position after moving. Your aim is to indicate how the boat moved. Click on the arrows below the picture (up to a combination of three arrows) to 'describe' the movement.</p>
+<p>In this <b>first example</b> the boat has moved down and then left (or left then down) but has not changed its slant. <span id = "inst">To proceed, you need to click the down arrow and then the left arrow, or the left arrow and then the down arrow.</span> <b>Do this now and click 'next' in order to proceed. If you make a mistake click on 'reset'.</b></p>
+</div>
+
+<div id = "practice2">
+<h2>Practice</h2>
+<p>In this <b>second example</b> the boat has moved left and down. It has also changed its slant to the left. <span id = "inst2">To proceed, you need to click the down arrow, the left arrow, and the rotate left arrow in any order you like.</span> <b>Do this now and click 'next' to proceed. If you make a mistake click on 'reset'.</b></p>
+</div>
+
+<div id = "practice3">
+<h2>Practice</h2>
+<p>In this <b>third example</b> the boat has moved up and tipped left, without turning. <span id = "inst3">To proceed, you need to click the up arrow and the rotate left arrow in any order you like.</span> <b>Do this now and click 'next' to proceed. If you make a mistake click on 'reset'.</b></p>
+</div>
+
+<table style = "margin: 0 auto; margin-top: 50px;">
+<tr style = "text-align:center;">
+<td><img id = "select1" src = "none.png"/></td>
+<td><img id = "select2" src = "none.png"/></td>
+<td><img id = "select3" src = "none.png"/></td>
+</tr>
+
+<tr>
+<td></td>
+<td><img id = "topPic" src = "1a.png"/></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td><img id = "bottomPic" src = "1b.png"/></td>
+<td></td>
+</tr>
+
+<tr style = "text-align:center;">
+<td><img id = "rotleft" src = "rotleft.png" style = "border: 2px solid; padding:10px;" onclick = "next(this)"/></td>
+<td><img id = "up" src = "up.png" style = "padding-top:10%; border: 2px solid; padding:10px;" onclick = "next(this)"/></td>
+<td><img id = "rotright" src = "rotright.png" style = "padding-top:10%; border: 2px solid; padding:10px;" onclick = "next(this)"/></td>
+</tr>
+
+<tr style = "text-align:center;">
+<td><img id = "left" src = "left.png" style = "border: 2px solid; padding:10px;" onclick = "next(this)"/></td>
+<td><img id = "down" src = "down.png" style = "border: 2px solid; padding:10px;" onclick = "next(this)"/></td>
+<td><img id = "right" src = "right.png" style = "padding-top:10%; border: 2px solid; padding:10px;" onclick = "next(this)"/></td>
+</tr>
+
+<tr style = "text-align:center;">
+<td style = "padding-top:20%;"><input type = "button" value = "Reset" onclick = "reset()"/></td>
+<td></td>
+<td style = "padding-top:20%;"><input type = "button" value = "Proceed" onclick = "proceed()"/></td>
+</tr>
+
+
+</table>
+
+
+
+
+</div>
+</body>
+</html>
